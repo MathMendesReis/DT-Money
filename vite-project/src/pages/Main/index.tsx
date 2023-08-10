@@ -1,9 +1,10 @@
 import Logo from '../../assets/react.svg'
+import { ContainerHeader } from './styled'
 
 export default function Main() {
   return (
     <div>
-      <header>
+      <ContainerHeader>
         <div>
           <img src={Logo} alt="" />
           <h1>DT Money</h1>
@@ -11,7 +12,7 @@ export default function Main() {
         <button>
           <span>Nova Transação</span>
         </button>
-      </header>
+      </ContainerHeader>
     </div>
   )
 }
