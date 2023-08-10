@@ -2,32 +2,39 @@ import 'styled-components'
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-    borderRadius?: string
-
+    borderRadius: {
+      small: string;
+      medium: string;
+      large: string;
+      circular: string;
+    };
+    breakpoints?: {
+      sm: string;
+      md: string;
+      lg: string;
+      xl: string;
+    };
+    spacing?: {
+      xs: string;
+      sm: string;
+      md: string;
+      lg: string;
+      xl: string;
+    };
     colors: {
-      white: string
+      white100: string
+      white200: string
       black: string
       red: string
-      orange: string
-      yellow: string
+      redDark: string
       green: string
-      teal: string
-      cyan: string
-      blue: string
-      indigo: string
-      purple: string
-      pink: string
+      greenLigth: string
+      greenDark: string
       gray100: string
       gray200: string
       gray300: string
       gray400: string
-      gray500: string
-      gray600: string
-      gray700: string
-      gray800: string
-      gray900: string
-      primary: string
-      secondary: string
+
     }
     fontFamily: {
       heading: string
@@ -40,11 +47,6 @@ declare module 'styled-components' {
       md: string
       base: string
       lg: string
-      xl: string
-      '2xl': string
-      '3xl': string
-      '4xl': string
-      '5xl': string
     }
   }
 }

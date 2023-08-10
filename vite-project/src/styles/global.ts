@@ -6,6 +6,12 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    line-height: 160%;
+
+    :focus{
+      outline: 0;
+      box-shadow: 0 0 0 2px ${({theme})=>theme.colors.greenLigth};
+    }
   }
 
   html {
@@ -18,9 +24,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: ${({ theme }) => theme.colors.gray900};
+    background: ${({ theme }) => theme.colors.gray100};
     -webkit-font-smoothing: antialiased;
-    color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.white200};
   }
 
   body,
