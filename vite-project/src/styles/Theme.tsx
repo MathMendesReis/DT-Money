@@ -13,7 +13,7 @@ export const theme: DefaultTheme = {
     small: '4px',
     medium: '8px',
     large: '12px',
-    circular: '999px',
+    circular: rem(50),
   },
   breakpoints: {
     sm: '576px', // Pequeno - dispositivos móveis em retrato

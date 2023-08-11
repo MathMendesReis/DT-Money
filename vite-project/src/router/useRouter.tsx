@@ -2,10 +2,14 @@ import {
     createBrowserRouter,
   } from "react-router-dom";
 import Main from "../pages/Main";
+
+export enum RoutersPaths  {
+  home = "/"
+}
 function useRouter() {
     const router = createBrowserRouter([
         {
-          path: "/",
+          path: RoutersPaths.home,
           element: <Main/>,
         },
       ]);
