@@ -1,8 +1,13 @@
 import { ArrowDown, ArrowUp, CurrencyDollar } from "@phosphor-icons/react";
 import { CardProhibited, ContainerSumary } from "./styled";
+import { TransactionsContext } from "../../../context/Trasactions/Context";
+import { useContext } from "react";
 const iconSize:number = 42
 
 export default function Sumary(){
+  const {transactions} = useContext(TransactionsContext)
+
+
   return (
     <ContainerSumary>
       <CardProhibited

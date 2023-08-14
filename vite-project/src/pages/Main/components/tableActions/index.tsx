@@ -1,19 +1,30 @@
-import { ContainerTable } from "./styled";
+import { ContainerTable } from "./styled"
 
-export default function TableActions() {
+interface Transactions {
+  id:number,
+  description:string,
+  type:string,
+  category:string,
+  price:number,
+  createdAt:string
+}
+export default function TableActions({description,type,category,price,createdAt}: Transactions) {
+
   return (
     <>
-        <ContainerTable>
+        <ContainerTable
+        type={type }
+        >
         <thead>
             <tr>
-              <th>desenvolvimento do site</th>
+              <th>{description}</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>12.000</td>
-              <td>venda</td>
-              <td>13/04/2022</td>
+              <td>{price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
+              <td>{category}</td>
+              <td>{createdAt}</td>
             </tr>
           </tbody>
         </ContainerTable>
