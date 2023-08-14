@@ -7,7 +7,23 @@ const iconSize:number = 42
 export default function Sumary(){
   const {transactions} = useContext(TransactionsContext)
 
+  const sumary = transactions.reduce(
+    (acc,transaction)=>{
+      if(transaction.type === 'income'){
+        acc.income += transaction.price
+        acc.total += transaction.price
+      }else{
+        acc.outcome += transaction.price
+        acc.total -= transaction.price
 
+      }
+      return acc
+    },
+    {
+      income:0,
+      outcome:0,
+      total:0
+    })
   return (
     <ContainerSumary>
       <CardProhibited
@@ -17,7 +33,7 @@ export default function Sumary(){
           <span>entrada</span>
           <ArrowUp size={iconSize}/>
         </div>
-        <span>R$ 17.400,00</span>
+        <span>{sumary.income}</span>
       </CardProhibited>
       <CardProhibited
       bgColor='red'
@@ -27,7 +43,7 @@ export default function Sumary(){
           <span>saida</span>
           <ArrowDown  size={iconSize}/>
         </div>
-        <span>R$ 1.259,00</span>
+        <span>{sumary.outcome}</span>
       </CardProhibited>
       <CardProhibited
         bgColor='green'
@@ -36,7 +52,7 @@ export default function Sumary(){
             <span>total</span>
             <CurrencyDollar size={iconSize} />
           </div>
-        <span>R$ 17.400,00</span>
+        <span>{sumary.total}</span>
       </CardProhibited>
     </ContainerSumary>
   )
