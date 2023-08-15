@@ -1,3 +1,4 @@
+import { dataAtualFormatada } from "../../../../helpers/formatData"
 import { ContainerTable } from "./styled"
 
 interface Transactions {
@@ -24,7 +25,7 @@ export default function TableActions({description,type,category,price,createdAt}
             <tr>
               <td>{price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
               <td>{category}</td>
-              <td>{createdAt}</td>
+              <td>{dataAtualFormatada(createdAt)}</td>
             </tr>
           </tbody>
         </ContainerTable>

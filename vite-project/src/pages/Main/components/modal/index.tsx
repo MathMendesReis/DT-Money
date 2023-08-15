@@ -4,7 +4,6 @@ import {ButtonModelClose, ContainerModal } from "./styled"
 
 interface PropsModal {
   setshowDisplaModal:React.Dispatch<React.SetStateAction<boolean>>
-
 }
 export default function Modal({setshowDisplaModal}:PropsModal){
   return(
@@ -18,7 +17,9 @@ export default function Modal({setshowDisplaModal}:PropsModal){
       >
         x
         </ButtonModelClose>
-      <NewTransatonForm/>
+      <NewTransatonForm
+      setshowDisplaModal={setshowDisplaModal}
+      />
     </div>
   </ContainerModal>
     </>

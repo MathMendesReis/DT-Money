@@ -30,7 +30,6 @@ export const ContainerInput = styled.form`
       border: 3px solid ${({theme})=>theme.colors.greenDark};
       font-weight: 600;
       text-transform: capitalize;
-      transition: all 1s;
 
       &:disabled{
         opacity: 0.7;
@@ -39,10 +38,8 @@ export const ContainerInput = styled.form`
       &:not(:disabled):hover{
         background-color: ${({theme})=>theme.colors.gray200};
         border: 3px solid ${({theme})=>theme.colors.gray200};
-        transition: all 1s;
       }
       &:active{
-        transition: all 1s;
         transform: scale(0.7);
       }
     }

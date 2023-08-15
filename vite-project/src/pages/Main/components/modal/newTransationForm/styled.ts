@@ -45,7 +45,10 @@ export const ButtonModelCadastrar = styled(BaseButtonModel)`
       &:hover{
         background-color: ${({theme})=>theme.colors.greenLigth};
         color: ${({theme})=>theme.colors.white100};
+      }
 
+      &:active{
+        transform: scale(0.7);
       }
 
 `

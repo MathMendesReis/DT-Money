@@ -15,7 +15,8 @@ export default function SearchForm(){
   const {
     register,
     handleSubmit,
-    formState: { isSubmitted }
+    formState: { isSubmitted },
+    reset,
   } = useForm<SearchFormsInput>({
     resolver:zodResolver(searchFormSchemma)
   })
@@ -24,8 +25,8 @@ export default function SearchForm(){
 
   type SearchFormsInput = z.infer<typeof searchFormSchemma>
   async function handleSearchTransations(data:SearchFormsInput) {
-    await new Promise(resolve => setTimeout(resolve,2000))
     await fetchTransactions(data.query)
+    reset()
 
   }
 

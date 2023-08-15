@@ -5,7 +5,12 @@ import * as zod from 'zod'
 import { zodResolver } from "@hookform/resolvers/zod";
 import { TransactionsContext } from "../../../../../context/Trasactions/Context";
 import { useContext } from "react";
-export default function NewTransatonForm() {
+import { api } from "../../../../../lib/axios/axios";
+
+interface PropsNewTransatonForm {
+  setshowDisplaModal:React.Dispatch<React.SetStateAction<boolean>>
+}
+export default function NewTransatonForm({setshowDisplaModal}:PropsNewTransatonForm) {
   const Schema = zod.object({
     description:zod.string(),
     price:zod.number(),
@@ -24,10 +29,14 @@ export default function NewTransatonForm() {
 
 
   async function handleAddNewTransation(data:NewTransationsInput) {
+    const {description,category,price,type} = data
+
+    createdNesTransations({description,category,price,type})
     reset()
+    setshowDisplaModal(false)
   }
 
-  const {fetchTransactions} = useContext(TransactionsContext)
+  const {createdNesTransations} = useContext(TransactionsContext)
   return(
   <ContainerForm onSubmit={handleSubmit(handleAddNewTransation)}>
     <span>Nova transação</span>

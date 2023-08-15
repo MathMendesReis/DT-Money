@@ -15,7 +15,6 @@ background-color: ${({theme})=>theme.colors.black};
 padding: 1rem 2rem;
 border-top-left-radius: ${({theme})=>theme.borderRadius.large};
 border-bottom-right-radius:${({theme})=>theme.borderRadius.large};
-overflow: auto;
 
 &:first-child{
   margin-top: 1.5rem;
