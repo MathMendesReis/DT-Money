@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div``
 
-export const ContainerInput = styled.div`
+export const ContainerInput = styled.form`
     min-height: 3rem;
     display: flex;
     justify-content: center;
@@ -32,7 +32,11 @@ export const ContainerInput = styled.div`
       text-transform: capitalize;
       transition: all 1s;
 
-      &:hover{
+      &:disabled{
+        opacity: 0.7;
+      }
+
+      &:not(:disabled):hover{
         background-color: ${({theme})=>theme.colors.gray200};
         border: 3px solid ${({theme})=>theme.colors.gray200};
         transition: all 1s;

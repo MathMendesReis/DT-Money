@@ -1,29 +1,10 @@
 import { ArrowDown, ArrowUp, CurrencyDollar } from "@phosphor-icons/react";
 import { CardProhibited, ContainerSumary } from "./styled";
-import { TransactionsContext } from "../../../context/Trasactions/Context";
-import { useContext } from "react";
+import useSumary from "../../../hooks/useSumary";
 const iconSize:number = 42
 
 export default function Sumary(){
-  const {transactions} = useContext(TransactionsContext)
-
-  const sumary = transactions.reduce(
-    (acc,transaction)=>{
-      if(transaction.type === 'income'){
-        acc.income += transaction.price
-        acc.total += transaction.price
-      }else{
-        acc.outcome += transaction.price
-        acc.total -= transaction.price
-
-      }
-      return acc
-    },
-    {
-      income:0,
-      outcome:0,
-      total:0
-    })
+  const sumary = useSumary()
   return (
     <ContainerSumary>
       <CardProhibited
@@ -33,7 +14,7 @@ export default function Sumary(){
           <span>entrada</span>
           <ArrowUp size={iconSize}/>
         </div>
-        <span>{sumary.income}</span>
+        <span>{sumary.income.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
       </CardProhibited>
       <CardProhibited
       bgColor='red'
@@ -43,7 +24,7 @@ export default function Sumary(){
           <span>saida</span>
           <ArrowDown  size={iconSize}/>
         </div>
-        <span>{sumary.outcome}</span>
+        <span>{sumary.outcome.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
       </CardProhibited>
       <CardProhibited
         bgColor='green'
@@ -52,7 +33,7 @@ export default function Sumary(){
             <span>total</span>
             <CurrencyDollar size={iconSize} />
           </div>
-        <span>{sumary.total}</span>
+        <span>{sumary.total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
       </CardProhibited>
     </ContainerSumary>
   )
