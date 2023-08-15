@@ -1,9 +1,9 @@
 
-# Nome do Projeto
+# DT Money
 
 ![Logo do Projeto](/vite-project/src/assets/imgReadme.png)
 
-Descrição curta do projeto e o que ele faz.
+Aplicação de controle finaceiro, e posivel adicionar valores de entrada e saida de dinheiro, os cards que ficam no topo mostram o quanto entrou, o quando foi gasto e faz o calculo pra saber o quando restou.
 
 ## Índice
 
@@ -20,12 +20,10 @@ Descrição curta do projeto e o que ele faz.
 
 ## Visão Geral
 
-Breve descrição do projeto, mostrando suas principais características e funcionalidades.
-
+O projeto e simples, tem uma unica pagina que contem algumas informações finaceiras, consiste em uma unica pagina, o botao de nova transacao abre um modal, com um formulario oara criar uma nova transação, nessa aplicação treinei muito css e aprendi muita coisa nova sobre o react, principalmente assuntos relacionados a performace da aplcação.
 ## Pré-requisitos
 
-Liste aqui os pré-requisitos necessários para executar o projeto, como Node.js, Yarn ou NPM.
-
+Node JS
 ## Instalação
 
 1. Clone o repositório:
@@ -47,42 +45,16 @@ npm install
 # ou
 yarn install
 ```
-
-## Como Usar
-
-Descreva aqui como executar o projeto localmente ou quaisquer comandos especiais necessários para rodá-lo. Se houver variações de ambiente (por exemplo, desenvolvimento, produção), explique-as aqui.
-
-## Estrutura do Projeto
-
-Descreva brevemente a estrutura de pastas do projeto e explique a finalidade de cada pasta principal.
-
-```
-src/
-  ├── components/  # Componentes reutilizáveis do projeto
-  ├── pages/       # Páginas do aplicativo
-  ├── styles/      # Estilos globais e estilos do tema
-  ├── utils/       # Funções e utilitários
-  ├── App.js       # Ponto de entrada do aplicativo
-  └── index.js     # Arquivo de inicialização do React
-```
-
 ## Estilos
 
-Explique aqui como você está gerenciando os estilos do projeto. Se estiver usando Styled Components, descreva sua abordagem e como os temas estão sendo utilizados.
-
+Styled components
 ## Dependências
 
-Liste aqui as principais dependências utilizadas no projeto, como React, Styled Components, React Router, etc.
-
-## Contribuição
-
-Explique como as pessoas podem contribuir com o projeto. Isso pode incluir informações sobre como reportar bugs, solicitar novos recursos ou enviar pull requests.
-
-## Licença
-
-Indique a licença sob a qual o projeto é distribuído. Por exemplo:
-
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+ - React
+ - Styled Components
+ - React Router
+ - React hook form
+ - Zod
 
 ## Contato
 
