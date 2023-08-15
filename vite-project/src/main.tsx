@@ -7,18 +7,17 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import useRouter from './router/useRouter.tsx'
-import { Provider as ReduxProvider } from 'react-redux'
-import { store } from './store/index.ts';
+import ProviverTransictions from './context/Trasactions/Context.tsx';
 
 
 const [router] = useRouter()
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Theme>
-      <ReduxProvider store={store}>
+      <ProviverTransictions>
         <GlobalStyle/>
         <RouterProvider router={router} />
-      </ReduxProvider>
+      </ProviverTransictions>
     </Theme>
   </React.StrictMode>,
 )
