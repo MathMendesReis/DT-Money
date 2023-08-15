@@ -25,12 +25,12 @@ export default function SearchForm(){
 
   type SearchFormsInput = z.infer<typeof searchFormSchemma>
   async function handleSearchTransations(data:SearchFormsInput) {
-    await fetchTransactions(data.query)
+    await fetchTransactionsCallback(data.query)
     reset()
 
   }
 
-  const {fetchTransactions} = useContext(TransactionsContext)
+  const {fetchTransactionsCallback} = useContext(TransactionsContext)
   return(
       <ContainerInput onSubmit={handleSubmit(handleSearchTransations)}>
         <input

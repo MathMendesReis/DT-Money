@@ -1,4 +1,4 @@
-import { createContext,useEffect,useState } from "react"
+import { createContext,useCallback,useEffect,useState } from "react"
 import { api } from "../../lib/axios/axios"
 
 interface Transactions {
@@ -19,8 +19,8 @@ interface CreatedNewTransaction {
 interface ContextProvder {
   transactions:Transactions[]
   setTransactions:React.Dispatch<React.SetStateAction<Transactions[]>>
-  fetchTransactions:(query?:string)=> Promise<void>
   createdNesTransations:(data:CreatedNewTransaction)=>void
+  fetchTransactionsCallback:(query?: string)=>void
 }
 export const TransactionsContext = createContext({} as ContextProvder)
 interface PropsProviderTransactions{
@@ -29,17 +29,24 @@ interface PropsProviderTransactions{
 export default function ProviverTransictions({children}:PropsProviderTransactions) {
   const [transactions,setTransactions] = useState<Transactions[]>([])
 
-  async function fetchTransactions(query?:string) {
-    const response = await api.get('/transactions',{
-      params:{
-        q: query
-      }
-    })
+  const fetchTransactionsCallback = useCallback(async (query?: string) => {
+    try {
+      const response = await api.get('/transactions', {
+        params: {
+          q: query
+        }
+      });
 
-    setTransactions(response.data)
-  }
+      setTransactions(response.data);
+    } catch (error) {
+      // Tratar erros aqui, se necessário
+      console.error('Erro ao buscar transações:', error);
+    }
+  }, []);
 
-  async function createdNesTransations(data:CreatedNewTransaction) {
+
+
+  const createdNesTransations = useCallback(async(data:CreatedNewTransaction)=>{
     const {description,category,price,type} = data
     const response = await api.post('/transactions',{
       description,
@@ -50,18 +57,20 @@ export default function ProviverTransictions({children}:PropsProviderTransaction
     })
 
     setTransactions((state)=>[response.data, ...state])
-  }
+  },[])
+
+
 
 
   useEffect(() => {
-    fetchTransactions()
+    fetchTransactionsCallback()
   },[])
   return(
     <TransactionsContext.Provider value={{
       transactions,
-      fetchTransactions,
       setTransactions,
-      createdNesTransations
+      createdNesTransations,
+      fetchTransactionsCallback
     }}>
       {children}
     </TransactionsContext.Provider>
